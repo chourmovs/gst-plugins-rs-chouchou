@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  gstreamer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gstreamer-build
+    #platform: linux/amd64
+    volumes:
+      - ./target:/target
+      - ./entrypoint.sh:/entrypoint.sh
