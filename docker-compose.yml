@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: gstreamer-build
+    container_name: gst-plugin-build
     #platform: linux/amd64
     volumes:
       - ./target:/target

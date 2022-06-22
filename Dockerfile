@@ -1,8 +1,5 @@
 FROM rust:bullseye
 
-ARG TARGET=x86_64-unknown-linux-gnu
-ARG TARGET_LINKER=x86_64-linux-gnu
-
 RUN dpkg --add-architecture amd64
 RUN dpkg --add-architecture armhf
 
@@ -46,13 +43,6 @@ RUN mkdir /target
 
 RUN rustup target add x86_64-unknown-linux-gnu
 RUN rustup target add armv7-unknown-linux-gnueabihf
-
-ENV RUSTFLAGS='-C linker='$TARGET_LINKER'-gcc'
-ENV TARGET=$TARGET
-ENV TARGET_LINKER=$TARGET_LINKER
-ENV PKG_CONFIG_ALLOW_CROSS=1
-ENV PKG_CONFIG_SYSROOT_DIR=/usr/$TARGET_LINKER/
-ENV PKG_CONFIG_PATH=/usr/$TARGET_LINKER/
 
 COPY ./entrypoint.sh /
 

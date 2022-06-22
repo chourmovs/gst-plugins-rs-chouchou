@@ -1,2 +1,4 @@
 /**/*.deb
 target/*.deb
+Dockerfile.amd64
+Dockerfile.armhf
