@@ -1,0 +1,11 @@
+name: build debian package
+on: [push]
+jobs:
+   build-debian-package:
+      runs-on: ubuntu-latest
+      container:
+        image: mariolukas/gst-plugins-rs-compile
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check for dockerenv file
+          run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)

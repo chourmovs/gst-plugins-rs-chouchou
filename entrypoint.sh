@@ -7,7 +7,6 @@ git clone --depth 1 -b $GIT_BRANCH $GIT_REPO
 
 cd gst-plugins-rs
 
-
 # build for amd64
 
 export RUST_LINKER=x86_64-linux-gnu-gcc
