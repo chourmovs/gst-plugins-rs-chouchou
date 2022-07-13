@@ -8,4 +8,4 @@ jobs:
       steps:
         #- uses: actions/checkout@v2
         - name: Check for dockerenv file
-          run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+          run: /entrypoint.sh
