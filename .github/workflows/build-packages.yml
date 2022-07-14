@@ -5,7 +5,8 @@ jobs:
       runs-on: ubuntu-latest
       container:
         image: mariolukas/gst-plugins-rs-compile
+        volumes: entrypoint.sh:/entrypoint.sh
       steps:
         #- uses: actions/checkout@v2
-        - name: Check for dockerenv file
+        - name: Building debian packages
           run: /entrypoint.sh
