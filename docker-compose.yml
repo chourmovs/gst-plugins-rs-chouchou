@@ -9,3 +9,5 @@ services:
     volumes:
       - ./target:/target
       - ./entrypoint.sh:/entrypoint.sh
+    environment:
+      RUNNER: 'local'
