@@ -2,11 +2,11 @@ name: build debian package
 on: [push]
 jobs:
    build-debian-package:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-latests
       container:
         image: mariolukas/gst-plugins-rs-compile
         volumes: entrypoint.sh:/entrypoint.sh
       steps:
-        #- uses: actions/checkout@v2
+        - uses: actions/checkout@v2
         - name: Building debian packages
-          run: /entrypoint.sh
+          run: ./entrypoint.sh
