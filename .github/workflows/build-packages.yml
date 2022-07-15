@@ -9,9 +9,9 @@ jobs:
           RUNNER: 'git'
       steps:
         - name: wget
-            uses: wei/wget@v1
-            with:
-              args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/mariolukas/gst-plugins-rs-builder/main/entrypoint.sh
+          uses: wei/wget@v1
+          with:
+            args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/mariolukas/gst-plugins-rs-builder/main/entrypoint.sh
         #- uses: actions/checkout@v2
         - name: Building debian packages
           run: ./entrypoint.sh
