@@ -10,7 +10,6 @@ if [ "$RUNNER" == "git" ];then
   $TARGET_BASE_PATH=/__w/gst-plugins-rs-builder/gst-plugins-rs-builder/gst-plugins-rs/target
 fi
 
-
 git clone --depth 1 -b $GIT_BRANCH $GIT_REPO
 
 cd gst-plugins-rs
