@@ -5,6 +5,7 @@ GIT_BRANCH=main
 #GIT_REPO=https://github.com/3nprob/gst-plugins-rs.git
 #GIT_BRANCH=spotify-uri-handler
 TARGET_BASE_PATH=/target
+$TARGET_BASE_PATH=/__w/gst-plugins-rs-builder/gst-plugins-rs-builder/gst-plugins-rs/target
 
 if [ "$RUNNER" == "git" ];then
   $TARGET_BASE_PATH=/__w/gst-plugins-rs-builder/gst-plugins-rs-builder/gst-plugins-rs/target

@@ -5,8 +5,7 @@ jobs:
       runs-on: ubuntu-latests
       container:
         image: mariolukas/gst-plugins-rs-compile
-        env:
-          RUNNER: 'git'
+
       steps:
         - uses: actions/checkout@v2
         - name: Building debian packages
