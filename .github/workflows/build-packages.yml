@@ -2,10 +2,11 @@ name: build debian package
 on: [push]
 jobs:
    build-debian-package:
-      runs-on: ubuntu-latests
+      runs-on: ubuntu-latest
       container:
         image: mariolukas/gst-plugins-rs-compile
-
+        env:
+          RUNNER: 'git'
       steps:
         - uses: actions/checkout@v2
         - name: Building debian packages
