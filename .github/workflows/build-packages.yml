@@ -13,5 +13,7 @@ jobs:
           with:
             args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/mariolukas/gst-plugins-rs-builder/main/entrypoint.sh
         #- uses: actions/checkout@v2
+        - name: make entrypoint.sh executable
+          run: chmod a+x entrypoint.sh
         - name: Building debian packages
           run: ./entrypoint.sh
