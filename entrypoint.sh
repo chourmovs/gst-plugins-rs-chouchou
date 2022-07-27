@@ -4,17 +4,13 @@ GIT_REPO=https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs
 GIT_BRANCH=main
 #GIT_REPO=https://github.com/3nprob/gst-plugins-rs.git
 #GIT_BRANCH=spotify-uri-handler
-TARGET_BASE_PATH=/target
 
 
 git clone --depth 1 -b $GIT_BRANCH $GIT_REPO
 
-
-if [ "$RUNNER" == "git" ];then
-  $TARGET_BASE_PATH="$(pwd)/gst-plugins-rs/target"
-fi
-
 cd gst-plugins-rs
+
+$TARGET_BASE_PATH="$(pwd)/target"
 
 # build for amd64
 

@@ -8,7 +8,7 @@ jobs:
         env:
           RUNNER: 'git'
       steps:
-        - name: wget
+        - name: wget entrypoint.sh script from repo
           uses: wei/wget@v1
           with:
             args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/mariolukas/gst-plugins-rs-builder/main/entrypoint.sh
