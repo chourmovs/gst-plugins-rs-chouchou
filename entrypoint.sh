@@ -10,7 +10,7 @@ git clone --depth 1 -b $GIT_BRANCH $GIT_REPO
 
 cd gst-plugins-rs
 
-$TARGET_BASE_PATH="$(pwd)/target"
+TARGET_BASE_PATH="$(pwd)/target"
 
 # build for amd64
 
