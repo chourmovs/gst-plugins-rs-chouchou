@@ -40,3 +40,5 @@ cargo clean
 cargo build --no-default-features -p gst-plugin-spotify -r --target $TARGET && \
 env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/usr/include/openssl/ CSOUND_LIB_DIR=/usr/lib/$TARGET_LINKER/ cargo deb --target $TARGET --no-strip --no-build -p gst-plugin-spotify
 mv $TARGET_BASE_PATH/$TARGET/debian/*.deb /target
+
+ls -al /target
