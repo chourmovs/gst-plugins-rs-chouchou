@@ -17,37 +17,14 @@ jobs:
           run: chmod a+x entrypoint.sh
         - name: Building debian packages
           run: ./entrypoint.sh
-        - name: Create Release
-          uses: actions/github-script@v2
+        - name: Get current date
+          id: date
+          run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+        - name: Upload binaries to release
+          uses: svenstaro/upload-release-action@v2
           with:
-            github-token: ${{secrets.GITHUB_TOKEN}}
-            script: |
-              console.log('environment', process.versions);
-              
-              const fs = require('fs').promises;
-              
-              const { repo: { owner, repo }, sha } = context;
-              console.log({ owner, repo, sha });
-              
-              const releaseDate = new Date()
-              releaseDate.toISOString().split('T')[0]
-              
-              const release = await github.repos.createRelease({
-                owner, repo,
-                tag_name: releaseDate,
-                draft: true,
-                target_commitish: sha
-              });
-        
-              console.log('created release', { release });
-          
-              for (let file of await fs.readdir('/target/*.deb')) {
-                console.log('uploading', file);
-        
-                await github.repos.uploadReleaseAsset({
-                  owner, repo,
-                  release_id: release.data.id,
-                  name: file,
-                  data: await fs.readFile(`./${file}`)
-                });            
-              }
+            repo_token: ${{ secrets.GITHUB_TOKEN }}
+            file: /target/*
+            tag: ${{ steps.date.outputs.date }}
+            overwrite: true
+            file_glob: true
