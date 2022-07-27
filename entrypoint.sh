@@ -6,11 +6,13 @@ GIT_BRANCH=main
 #GIT_BRANCH=spotify-uri-handler
 TARGET_BASE_PATH=/target
 
-if [ "$RUNNER" == "git" ];then
-  $TARGET_BASE_PATH=/__w/gst-plugins-rs-builder/gst-plugins-rs-builder/gst-plugins-rs/target
-fi
 
 git clone --depth 1 -b $GIT_BRANCH $GIT_REPO
+
+
+if [ "$RUNNER" == "git" ];then
+  $TARGET_BASE_PATH="$(pwd)/gst-plugins-rs/target"
+fi
 
 cd gst-plugins-rs
 
