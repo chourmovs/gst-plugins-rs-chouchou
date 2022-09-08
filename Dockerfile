@@ -34,7 +34,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libssl-dev:amd64 \
         libssl-dev:armhf \
         gcc-x86-64-linux-gnu \
-        gcc-arm-linux-gnueabihf
+        gcc-arm-linux-gnueabihf \
+        gcc-aarch64-linux-gnu
 
 RUN cargo install cargo-deb
 
@@ -43,6 +44,7 @@ RUN mkdir /target
 
 RUN rustup target add x86_64-unknown-linux-gnu
 RUN rustup target add armv7-unknown-linux-gnueabihf
+RUN rustup target add aarch64-unknown-linux-gnu
 
 COPY ./entrypoint.sh /
 
