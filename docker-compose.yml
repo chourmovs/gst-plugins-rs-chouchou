@@ -1,11 +1,11 @@
 version: "3.3"
 services:
   gstreamer:
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
     container_name: gst-plugin-build
-    platform: linux/amd64
     volumes:
       - ./target:/target
       - ./entrypoint.sh:/entrypoint.sh
