@@ -3,7 +3,7 @@
 #MULTIARCHTUPLE=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 GIT_REPO=https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs.git
-GIT_BRANCH=0.9.7
+GIT_BRANCH=0.9.8
 
 git clone -c advice.detachedHead=false --single-branch --depth 1 -b $GIT_BRANCH $GIT_REPO
 
