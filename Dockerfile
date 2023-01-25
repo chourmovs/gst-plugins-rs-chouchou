@@ -1,4 +1,5 @@
-FROM rust:bullseye
+FROM rust:1.66.1-slim-bullseye
+
 
 RUN dpkg --add-architecture amd64
 RUN dpkg --add-architecture armhf
