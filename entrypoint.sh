@@ -59,22 +59,7 @@ env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/
 mv $TARGET_BASE_PATH/$TARGET/debian/*.deb /target
 
 # build for armhf
-#export RUST_LINKER=arm-linux-gnueabihf-gcc
-#export RUSTFLAGS='-C linker='$RUST_LINKER
-#export TARGET_LINKER=arm-linux-gnueabihf
-#export TARGET=armv7-unknown-linux-gnueabihf
-#export PKG_CONFIG_ALLOW_CROSS=1
-#export PKG_CONFIG_SYSROOT_DIR=/usr/$TARGET_LINKER/
-#export PKG_CONFIG_PATH=/usr/$TARGET_LINKER/
-#
-#cargo clean
-#cargo build --no-default-features -p gst-plugin-spotify -r --target $TARGET && \
-#env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/usr/include/openssl/ CSOUND_LIB_DIR=/usr/lib/$TARGET_LINKER/ cargo deb --target $TARGET --no-build -p gst-plugin-spotify
-#mv $TARGET_BASE_PATH/$TARGET/debian/*.deb /target
-
-
-## build for armhf
-export RUST_LINKER=aarch64-linux-gnu-gcc
+export RUST_LINKER=arm-linux-gnueabihf-gcc
 export RUSTFLAGS='-C linker='$RUST_LINKER
 export TARGET_LINKER=arm-linux-gnueabihf
 export TARGET=armv7-unknown-linux-gnueabihf
@@ -84,5 +69,20 @@ export PKG_CONFIG_PATH=/usr/$TARGET_LINKER/
 
 cargo clean
 cargo build --no-default-features -p gst-plugin-spotify -r --target $TARGET && \
-env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/usr/include/openssl/ CSOUND_LIB_DIR=/usr/lib/$TARGET_LINKER/ cargo deb --target $TARGET --no-strip --no-build -p gst-plugin-spotify
+env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/usr/include/openssl/ CSOUND_LIB_DIR=/usr/lib/$TARGET_LINKER/ cargo deb --target $TARGET --no-build -p gst-plugin-spotify
 mv $TARGET_BASE_PATH/$TARGET/debian/*.deb /target
+
+
+## build for armhf
+#export RUST_LINKER=aarch64-linux-gnu-gcc
+#export RUSTFLAGS='-C linker='$RUST_LINKER
+#export TARGET_LINKER=arm-linux-gnueabihf
+#export TARGET=armv7-unknown-linux-gnueabihf
+#export PKG_CONFIG_ALLOW_CROSS=1
+#export PKG_CONFIG_SYSROOT_DIR=/usr/$TARGET_LINKER/
+#export PKG_CONFIG_PATH=/usr/$TARGET_LINKER/
+
+#cargo clean
+#cargo build --no-default-features -p gst-plugin-spotify -r --target $TARGET && \
+#env OPENSSL_DIR=/ OPENSSL_LIB_DIR=/usr/lib/$TARGET_LINKER/ OPENSSL_INCLUDE_DIR=/usr/include/openssl/ CSOUND_LIB_DIR=/usr/lib/$TARGET_LINKER/ cargo deb --target $TARGET --no-strip --no-build -p gst-plugin-spotify
+#mv $TARGET_BASE_PATH/$TARGET/debian/*.deb /target
