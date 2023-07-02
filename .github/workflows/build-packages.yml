@@ -4,14 +4,14 @@ jobs:
    build-debian-package:
       runs-on: ubuntu-latest
       container:
-        image: mariolukas/gst-plugins-rs-compile
+        image: chourmovs/gst-plugins-rs-compile
         env:
           RUNNER: 'git'
       steps:
         - name: wget entrypoint.sh script from repo
           uses: wei/wget@v1
           with:
-            args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/mariolukas/gst-plugins-rs-builder/main/entrypoint.sh
+            args: -O entrypoint.sh -P ./ https://raw.githubusercontent.com/chourmovs/gst-plugins-rs-builder/main/entrypoint.sh
         #- uses: actions/checkout@v2
         - name: make entrypoint.sh executable
           run: chmod a+x entrypoint.sh
