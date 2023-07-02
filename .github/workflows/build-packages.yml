@@ -4,7 +4,7 @@ jobs:
    build-debian-package:
       runs-on: ubuntu-latest
       container:
-        image: chourmovs/gst-plugins-rs-compile
+        image: mariolukas/gst-plugins-rs-compile
         env:
           RUNNER: 'git'
       steps:
