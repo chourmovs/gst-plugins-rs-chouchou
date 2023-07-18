@@ -1,9 +1,9 @@
 FROM rust:1.66.1-slim-bullseye
 
 
-RUN dpkg --add-architecture amd64
+#RUN dpkg --add-architecture amd64
 RUN dpkg --add-architecture armhf
-RUN dpkg --add-architecture arch64
+#RUN dpkg --add-architecture arch64
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -29,9 +29,9 @@ RUN cargo install cargo-deb
 RUN useradd -m user -u 1000 -s /bin/bash
 RUN mkdir /target
 
-RUN rustup target add x86_64-unknown-linux-gnu
+#RUN rustup target add x86_64-unknown-linux-gnu
 RUN rustup target add armv7-unknown-linux-gnueabihf
-RUN rustup target add aarch64-unknown-linux-gnu
+#RUN rustup target add aarch64-unknown-linux-gnu
 
 COPY ./entrypoint.sh /
 
