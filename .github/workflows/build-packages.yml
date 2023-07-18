@@ -1,6 +1,6 @@
 name: build debian package
-on: [push]
-jobs:
+on: [workflow_dispatch]
+jobs:workflow_dispatch
    build-debian-package:
       runs-on: ubuntu-latest
       container:
